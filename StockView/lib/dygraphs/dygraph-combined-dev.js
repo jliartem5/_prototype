@@ -8034,7 +8034,6 @@ Dygraph.numericTicks = function(a, b, pixels, opts, dygraph, vals) {
 /** @type {Dygraph.Ticker} */
 Dygraph.dateTicker = function(a, b, pixels, opts, dygraph, vals) {
   var chosen = Dygraph.pickDateTickGranularity(a, b, pixels, opts);
-
   if (chosen >= 0) {
     return Dygraph.getDateAxis(a, b, chosen, opts, dygraph);
   } else {
@@ -8152,6 +8151,7 @@ Dygraph.pickDateTickGranularity = function(a, b, pixels, opts) {
   var pixels_per_tick = /** @type{number} */(opts('pixelsPerLabel'));
   for (var i = 0; i < Dygraph.NUM_GRANULARITIES; i++) {
     var num_ticks = Dygraph.numDateTicks(a, b, i);
+    console.log(num_ticks);
     if (pixels / num_ticks >= pixels_per_tick) {
       return i;
     }

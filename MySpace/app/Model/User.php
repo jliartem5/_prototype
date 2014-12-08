@@ -21,5 +21,21 @@ class User extends AppModel {
             'className' => 'NoteDefaultConfig'
         )
     );
-
+    
+    public $validate = array(
+        'email'=>array(
+            'rule'=>'email',
+            'message'=>'An email is required'
+        ),
+        'password'=>array(
+            'rule'=>array('minLength','4'),
+            'message'=>'4 caracter minimum',
+           
+        )/*,
+        'create_date'=>array(
+            'rule'=>'date',
+            'message'=>'Error; Date notdefined',
+            'required'=>false
+        )*/
+    );
 }
